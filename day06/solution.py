@@ -1,16 +1,8 @@
-# For fun, tracked time difference between the 2 approaches
-import functools
-import time
-
-def timer(function):
-    @functools.wraps(function)
-    def wrapper_timer(*args, **kwargs):
-        start = time.perf_counter()
-        _ = function(*args, **kwargs)
-        finish = time.perf_counter()
-        print(f"Completed in {finish - start:0.5f} secs")
-        return _
-    return wrapper_timer
+### Needed only for the timer wrapper
+import sys
+sys.path.append('../')
+from timer import timer
+###
 
 ##
 # Solution begins here
